@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Studio Exemplo · Marcações (demo)</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="demo-banner" role="note">DEMO: não é um negócio real</div>
+
+  <header class="site-header">
+    <div class="wrap">
+      <h1>Studio Exemplo</h1>
+      <p class="tagline">Marque o seu atendimento em poucos passos.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <form id="booking-form" class="card" novalidate>
+      <fieldset class="step">
+        <legend><span class="step-num">1</span> Escolha o serviço</legend>
+        <div id="services" class="services"></div>
+      </fieldset>
+
+      <fieldset class="step">
+        <legend><span class="step-num">2</span> Escolha a data</legend>
+        <label class="field">
+          <span>Data</span>
+          <input type="date" id="date" name="date" required>
+        </label>
+      </fieldset>
+
+      <fieldset class="step">
+        <legend><span class="step-num">3</span> Escolha a hora</legend>
+        <p class="hint" id="slots-hint">Escolha primeiro uma data.</p>
+        <div id="slots" class="slots"></div>
+      </fieldset>
+
+      <fieldset class="step">
+        <legend><span class="step-num">4</span> Os seus dados</legend>
+        <label class="field">
+          <span>Nome</span>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </label>
+        <label class="field">
+          <span>Telemóvel</span>
+          <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="9XX XXX XXX" required>
+        </label>
+        <label class="field">
+          <span>Email</span>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </label>
+      </fieldset>
+
+      <div class="summary" id="summary" aria-live="polite"></div>
+      <p class="error" id="form-error" role="alert"></p>
+      <button type="submit" class="btn btn-primary">Confirmar marcação</button>
+    </form>
+
+    <section id="confirmation" class="card hidden" aria-live="polite">
+      <h2>Marcação confirmada ✔</h2>
+      <p id="confirmation-text"></p>
+
+      <h3>Pré-visualização do email enviado ao salão</h3>
+      <p class="hint">Simulação: nenhum email é realmente enviado.</p>
+      <div class="email-preview">
+        <dl class="email-headers">
+          <dt>De:</dt><dd id="email-from"></dd>
+          <dt>Para:</dt><dd id="email-to"></dd>
+          <dt>Assunto:</dt><dd id="email-subject"></dd>
+        </dl>
+        <pre class="email-body" id="email-body"></pre>
+      </div>
+
+      <button type="button" class="btn" id="new-booking">Fazer nova marcação</button>
+    </section>
+
+    <section class="card" id="panel">
+      <div class="panel-head">
+        <h2>Marcações guardadas</h2>
+        <button type="button" class="btn btn-small btn-danger" id="clear-all">Apagar todas</button>
+      </div>
+      <p class="hint">Guardadas apenas neste navegador (localStorage).</p>
+      <div id="bookings-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">Studio Exemplo é um salão fictício. Site de demonstração.</div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
